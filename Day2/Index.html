@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Day </title>
+        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class=" text-3xl w-[400px] bg-gray-100 w-full min-h-screen flex  flex-col items-center justify-center p-4">
+        <h1 class="text-6xl  text-blue-600">Welcome to Day 2</h1>
+        <h1>Rest Api.</h1>
+   <p>
+    What is a REST API?
+
+A REST API (Representational State Transfer Application Programming Interface) is a set of rules that allows different software systems to communicate over the internet using HTTP (Hypertext Transfer Protocol).
+
+It is used to access and manipulate resources (data) on a server, where each resource is identified by a URL.
+
+🎯 Key Concepts in REST API
+Term	Meaning
+Resource	The data you want to access or modify (users, products, posts, etc.)
+Endpoint	A specific URL that identifies a resource
+HTTP Methods	Actions to perform on resources (GET, POST, PUT, DELETE)
+JSON	The common data format used to send and receive data
+Stateless	Every request must have all required information — server does not remember previous requests
+   </p>
+   <p>
+     <h1>REST API Architecture Rules</h1>
+     Client-Server (frontend & backend are separate)
+
+Stateless (no session memory)
+
+Cacheable (data can be cached)
+
+Uniform Interface (standard endpoints & methods)
+
+Layered System (security, load balancers, proxies, etc.)
+   </p>
+   <h2>⭐ Common HTTP Methods in REST</h2>
+   <p>
+      Method	Purpose	Example
+GET	Retrieve data	Get list of users
+POST	Create new data	Create a new user
+PUT	Update existing data (replace)	Update user info
+PATCH	Partially update data	Update user email only
+DELETE	Remove data	Delete a user
+📍 Example Endpoints (Assume Base URL: https://api.example.com
+)
+1️⃣ GET — Read Data
+GET /users
+GET /users/4
+   </p>
+   <h3>REST API Workflow Diagram</h3>
+   <p>
+    <pre>
+          Client (Browser, Mobile, App)
+          |
+          | HTTP Request (GET, POST, PUT, DELETE)
+          v
+     REST API Server
+          |
+          | Database Query
+          v
+       Database
+    </pre>
+   </p>
+        <a href="../Day3/Index.html" class="next-day-link hover:bg-blue-600 hover:text-white">Go to Day 3</a>
+    </div>
+</body>
+</html>
