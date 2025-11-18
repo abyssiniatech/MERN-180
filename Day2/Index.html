@@ -3,74 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Day </title>
-        <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="style.css">
+    <title>Student CRUD App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        h2 {
+            text-align: center;
+        }
+        .container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 500px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        button {
+            cursor: pointer;
+            background: #007bff;
+            color: #fff;
+            border: none;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        table {
+            width: 100%;
+            margin-top: 15px;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+        }
+        .edit-btn {
+            background: orange;
+        }
+        .delete-btn {
+            background: red;
+        }
+    </style>
 </head>
 <body>
-    <div class=" text-3xl w-[400px] bg-gray-100 w-full min-h-screen flex  flex-col items-center justify-center p-4">
-        <h1 class="text-6xl  text-blue-600">Welcome to Day 2</h1>
-        <h1>Rest Api.</h1>
-   <p>
-    What is a REST API?
 
-A REST API (Representational State Transfer Application Programming Interface) is a set of rules that allows different software systems to communicate over the internet using HTTP (Hypertext Transfer Protocol).
+    <h2>Student CRUD Application</h2>
 
-It is used to access and manipulate resources (data) on a server, where each resource is identified by a URL.
+    <div class="container">
+        <input type="text" id="name" placeholder="Enter Student Name">
+        <input type="number" id="age" placeholder="Enter Age">
+        <input type="text" id="grade" placeholder="Enter Grade (e.g. 7, 8)">
+        <select id="gender">
+            <option value="" selected disabled>Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
 
-🎯 Key Concepts in REST API
-Term	Meaning
-Resource	The data you want to access or modify (users, products, posts, etc.)
-Endpoint	A specific URL that identifies a resource
-HTTP Methods	Actions to perform on resources (GET, POST, PUT, DELETE)
-JSON	The common data format used to send and receive data
-Stateless	Every request must have all required information — server does not remember previous requests
-   </p>
-   <p>
-     <h1>REST API Architecture Rules</h1>
-     Client-Server (frontend & backend are separate)
+        <button onclick="addStudent()">Save Student</button>
 
-Stateless (no session memory)
-
-Cacheable (data can be cached)
-
-Uniform Interface (standard endpoints & methods)
-
-Layered System (security, load balancers, proxies, etc.)
-   </p>
-   <h2>⭐ Common HTTP Methods in REST</h2>
-   <p>
-      Method	Purpose	Example
-GET	Retrieve data	Get list of users
-POST	Create new data	Create a new user
-PUT	Update existing data (replace)	Update user info
-PATCH	Partially update data	Update user email only
-DELETE	Remove data	Delete a user
-📍 Example Endpoints (Assume Base URL: https://api.example.com
-)
-1️⃣ GET — Read Data
-GET /users
-GET /users/4
-   </p>
-   <h3>REST API Workflow Diagram</h3>
-   <p>
-    <pre>
-          Client (Browser, Mobile, App)
-          |
-          | HTTP Request (GET, POST, PUT, DELETE)
-          v
-     REST API Server
-          |
-          | Database Query
-          v
-       Database
-    </pre>
-   </p>
-         <a href="https://www.ibm.com/think/topics/rest-apis">
-            <img src="rest.png" alt="REST API Diagram" class="w-[300px] h-[200px]"/>
-         </a>
-        <a href="../Day3/Index.html" class="next-day-link hover:bg-blue-600 hover:text-white">Go to Day 3</a>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th><th>Age</th><th>Grade</th><th>Gender</th><th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+        </table>
     </div>
-     
+
+    <script>
+        let students = JSON.parse(localStorage.getItem("students")) || [];
+        let editIndex = -1;
+
+        function showStudents() {
+            const table = document.getElementById("tableBody");
+            table.innerHTML = "";
+
+            students.forEach((student, index) => {
+                table.innerHTML += `
+                    <tr>
+                        <td>${student.name}</td>
+                        <td>${student.age}</td>
+                        <td>${student.grade}</td>
+                        <td>${student.gender}</td>
+                        <td>
+                            <button class="edit-btn" onclick="editStudent(${index})">Edit</button>
+                            <button class="delete-btn" onclick="deleteStudent(${index})">Delete</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function addStudent() {
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+            const grade = document.getElementById("grade").value;
+            const gender = document.getElementById("gender").value;
+
+            if (!name || !age || !grade || !gender) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            const studentData = { name, age, grade, gender };
+
+            if (editIndex === -1) {
+                students.push(studentData);
+            } else {
+                students[editIndex] = studentData;
+                editIndex = -1;
+            }
+
+            localStorage.setItem("students", JSON.stringify(students));
+            clearForm();
+            showStudents();
+        }
+
+        function editStudent(index) {
+            const student = students[index];
+            document.getElementById("name").value = student.name;
+            document.getElementById("age").value = student.age;
+            document.getElementById("grade").value = student.grade;
+            document.getElementById("gender").value = student.gender;
+
+            editIndex = index;
+        }
+
+        function deleteStudent(index) {
+            if (confirm("Are you sure you want to delete this student?")) {
+                students.splice(index, 1);
+                localStorage.setItem("students", JSON.stringify(students));
+                showStudents();
+            }
+        }
+
+        function clearForm() {
+            document.getElementById("name").value = "";
+            document.getElementById("age").value = "";
+            document.getElementById("grade").value = "";
+            document.getElementById("gender").value = "";
+        }
+
+        showStudents();
+    </script>
+
 </body>
 </html>
