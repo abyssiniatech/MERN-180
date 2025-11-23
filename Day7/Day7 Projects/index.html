@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Surafel Portfolio - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white shadow">
+    <div class="max-w-6xl mx-auto text-2xl p-4 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-pink-600">Surafel</h1>
+      <nav class="space-x-4 hidden md:block">
+        <a href="index.html" class="font-semibold text-blue-600">Home</a>
+        <a href="about.html">About</a>
+        <a href="projects.html">Projects</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-6xl mx-auto p-6 flex flex-col md:flex-row items-center gap-8">
+    <div class="md:w-1/2">
+      <h2 class="text-3xl font-bold mb-4">Hi, I’m Surafel 👋</h2>
+      <p class="text-gray-600 mb-6">
+        I am a frontend developer learning MERN + Next.js to become a professional full-stack developer.
+      </p>
+      <div class="flex gap-4">
+        <a href="projects.html" class="bg-blue-600 text-white px-5 py-2 rounded">View Projects</a>
+        <a href="about.html" class="border px-5 py-2 rounded">About Me</a>
+      </div>
+    </div>
+
+    <div class="md:w-1/2">
+      <img 
+        src="code.png" 
+        class="rounded-xl shadow-lg"
+        alt="Profile"
+      >
+    </div>
+  </section>
+
+  <!-- Feature Cards -->
+  <section class="max-w-6xl mx-auto p-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <div class="bg-white p-5 rounded shadow">
+      <h3 class="font-bold text-lg mb-2">Responsive Design</h3>
+      <p class="text-gray-600">Builds mobile-first responsive layouts.</p>
+    </div>
+    <div class="bg-white p-5 rounded shadow">
+      <h3 class="font-bold text-lg mb-2">Modern Tools</h3>
+      <p class="text-gray-600">HTML, CSS, Tailwind, React, Next.js.</p>
+    </div>
+    <div class="bg-white p-5 rounded shadow">
+      <h3 class="font-bold text-lg mb-2">Clean Code</h3>
+      <p class="text-gray-600">Maintainable and structured code.</p>
+    </div>
+  </section>
+      <!--footer section -->
+  <footer class="bg-black text-white text-gray-700   p-4 rounded shadow-md text-center text-gray-700 mt-10">
+    <div class="text-center mt-8">
+      <p class="text-2xl fst-italic ">© 2025 Surafel Portfolio</p>
+    </div>
+  </footer>
+</body>
+</html>

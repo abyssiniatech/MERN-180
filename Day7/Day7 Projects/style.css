@@ -1,0 +1,29 @@
+:root{
+  --bg:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#0ea5a3;
+  --radius:12px;
+  --max-width:1200px;
+  --gap:1.25rem;
+  --container-padding:1rem;
+  --fw-regular: 400;
+  --fw-bold: 700;
+  --base-font-size:16px;
+}
+body{
+  background-color:var(--bg);
+  color:var(--text);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin:0;
+  padding:0;
+  line-height:1.6;
+  font-size:var(--base-font-size);
+}
+header{
+         background-color:var(--bg);
+            box-shadow:0 2px 4px rgba(0,0,0,0.1);
+            padding:1rem var(--container-padding);
+            margin-bottom:2rem;
+             
+}
