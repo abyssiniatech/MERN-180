@@ -230,4 +230,36 @@ console.log(concat_arr)
 
 
 
-// 
+// foreach() is  
+console.log("forEach() method")
+let numbers=[1,2,3,4,5,6,7,8,40,56,78];
+numbers.forEach((list) =>{
+    console.log(list);
+});
+
+ console.log('map() method');
+// map() method
+numbers.map(lis =>{
+    console.log(lis*3);
+})
+console.log("filter methods")
+// filter() method
+const res=numbers.filter((list) =>list >10 );  
+console.log(res);
+
+// find method
+const  finInd=numbers.indexOf((list) =>list ===3);
+console.log(finInd);
+
+
+
+
+// find 
+const findNum = numbers.find((items) =>items==="3")
+console.log(findNum)
+
+
+// find index
+const index =numbers.findIndex((num)=>num==="2")
+console.log(index);
+
