@@ -1,0 +1,83 @@
+/* Base styles (already defined) */
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: gray;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    padding: 10px;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+    gap: 10px;
+}
+
+ul li a {
+    text-decoration: none;
+    padding: 10px;
+    color: rgb(58, 56, 56);
+    font-size: 1.3rem;
+}
+ul li a:hover {
+   background-color: rgb(183, 207, 207);
+   padding:10px;
+   border-radius: 10px;
+   color:white;
+}
+
+/* Media Query for tablets (max-width: 768px) */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start;
+    }
+
+    ul {
+        flex-direction: column; /* Stack menu vertically */
+        width: 100%;
+    }
+    img{
+         image-orientation: initial;
+         object-fit:cover;
+         object-position:center;
+         box-shadow:rgba(red, green, blue, 0.3)
+    }
+    ul li a {
+        font-size: 1.1rem; /* Slightly smaller font */
+        padding: 8px;
+    }
+}
+
+/* Media Query for mobile (max-width: 480px) */
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 5px;
+    }
+
+    ul li a {
+        font-size: 1rem;
+        padding: 5px;
+    }
+}
+
+
+.par1{
+    margin-top: 10px;
+    background-color: teal;
+    border-radius: 5px;
+    color:white;
+}
