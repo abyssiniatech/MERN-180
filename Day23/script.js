@@ -91,14 +91,14 @@ const ul=document.querySelector("ul");
 
 
 // create elements in js 
-const con=document.querySelector("#con");
-const newDiv = document.createElement("div");
-const newPar = document.createElement("p")
-newPar.textContent ="these is new paragraph text"
-newDiv.appendChild(newPar)
-con.appendChild(newDiv); 
-newPar.setAttribute("id","newpar")
-console.log(newDiv)
+// const con=document.querySelector("#con");
+// const newDiv = document.createElement("div");
+// const newPar = document.createElement("p")
+// newPar.textContent ="these is new paragraph text"
+// newDiv.appendChild(newPar)
+// con.appendChild(newDiv); 
+// newPar.setAttribute("id","newpar")
+// console.log(newDiv)
 console.log(newPar)
 
 
